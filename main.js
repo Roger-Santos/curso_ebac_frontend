@@ -4,40 +4,59 @@ const inputB = document.getElementById('campoB');
 
 let formValido = false;
 
+form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    formValido = validaValores(inputA.value, inputB.value);
+
+    console.log(inputA.value);
+    console.log(inputB.value);
+
+    if(formValido){
+        removeErro();
+        exibeSucesso();
+    }else{
+        removeSucesso();
+        exibeErro();
+    }
+});
+
+inputA.addEventListener('keyup', function(e){
+    removeTodasMensagens();
+});
+
+inputB.addEventListener('keyup', function(e){
+    removeTodasMensagens();
+});
+
 function validaValores(_valorA, _valorB){
     return _valorB > _valorA;
 }
 
-form.addEventListener('submit', function(e){
-    e.preventDefault();
+function exibeErro(){
+    inputA.classList.add('error');
+    inputB.classList.add('error');
+    document.querySelector('.error-message').style.display = 'block';
+}
 
-    const campoA = document.getElementById('campoA');
-    const campoB = document.getElementById('campoB');
-    const mensagemSucesso = "O valor do campo A: " + "<b>" + campoA.value + "</b>" + " é menor que o valor do campo B: " + "<b>" + campoB.value + "</b>"; 
+function exibeSucesso(){
+    const mensagemSucesso = "Sucesso! O valor do campo A: " + "<b>" + inputA.value + "</b>" + " é menor que o valor do campo B: " + "<b>" + inputB.value + "</b>";
+    const containerMessagemSucesso = document.querySelector('.success-message');
+    containerMessagemSucesso.innerHTML = mensagemSucesso;
+    containerMessagemSucesso.style.display = 'block';
+}
 
-    formValido = validaValores(campoA.value, campoB.value);
-        
-    if(formValido){
-        document.querySelector('.error-message').style.display = 'none';
-        const containerMessagemSucesso = document.querySelector('.success-message');
-        containerMessagemSucesso.innerHTML = mensagemSucesso;
-        containerMessagemSucesso.style.display = 'block';
-    }else{
-        document.querySelector('.success-message').style.display = 'none';
-        inputA.style.border = '1px solid red';
-        inputB.style.border = '1px solid red'; 
-        document.querySelector('.error-message').style.display = 'block';
-    }    
-})
+function removeErro(){
+    inputA.classList.remove('error');
+    inputB.classList.remove('error');
+    document.querySelector('.error-message').style.display = 'none';
+}
 
-inputA.addEventListener('keyup', function(e){
-    formValido = validaNome(e.target.value);
+function removeSucesso(){
+    document.querySelector('.success-message').style.display = 'none';
+}
 
-    if(!formValido){
-        nomeBeneficiario.classList.add('error')
-        document.querySelector('.error-message').style.display = 'block';
-    }else{
-        nomeBeneficiario.classList.remove('error')
-        document.querySelector('.error-message').style.display = 'none';
-    }
-});
+function removeTodasMensagens(){
+    removeErro();
+    removeSucesso();
+}
