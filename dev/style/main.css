@@ -1,0 +1,81 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #dfe4ea;
+  font-family: Roboto, sans-serif;
+  color: #fff;
+  font-size: 1em;
+}
+body .container {
+  max-width: 1024px;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: #eb3b5a;
+  padding: 32px;
+}
+body .container main {
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+body .container main h1 {
+  text-align: center;
+  font-size: 3em;
+  font-family: Lobster, cursive;
+}
+body .container main p {
+  margin-top: 32px;
+  margin-bottom: 16px;
+  border-bottom: #dfe4ea;
+}
+body .container main input {
+  display: block;
+  margin: 8px auto 0;
+  padding: 8px;
+  font-size: 1.5em;
+  max-width: 120px;
+  border: none;
+  background-color: #811125;
+  text-align: center;
+  color: #fff;
+  border-bottom: 3px solid #fff;
+}
+body .container main button {
+  padding: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1em;
+  margin-top: 6px;
+  border-radius: 8px;
+  background-color: #f7b731;
+  color: #000;
+  font-family: #f7b731;
+}
+body .container main button[disabled] {
+  background-color: #ccc;
+  color: #fff;
+}
+body .container main .resultado {
+  margin-top: 16px;
+  display: none;
+}
+body .container main ul {
+  margin-top: 16px;
+}
+body .container main ul li {
+  display: inline-block;
+  align-items: start;
+  list-style: none;
+  width: 50px;
+  margin: 16px;
+  padding: 10px;
+  background-color: #fff;
+  font-size: 1.5em;
+  color: #000;
+  border-radius: 50%;
+}
